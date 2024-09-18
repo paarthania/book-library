@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book Library</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="search-section">
+        <div class="book-count">search new books</div>
+        <h2>Search Books</h2>
+        <div class="search-container">
+          <input
+            type="text"
+            id="book-search"
+            placeholder="Search for books..."
+          />
+          <button id="search-button">Search</button>
+        </div>
+        <div id="book-results"></div>
+      </div>
+
+      <div class="library-section">
+        <div id="book-count"></div>
+
+        <h2>My Library</h2>
+        <div class="library-container">
+          <input
+            type="text"
+            id="library-search"
+            placeholder="Search in my library..."
+          />
+          <button id="library-search-button">Search</button>
+        </div>
+        <div id="library-results"></div>
+      </div>
+    </div>
+
+    <script src="scripts.js"></script>
+
+    <script>
+      async function fetchBookCount() {
+        try {
+          const response = await fetch("/api/books/count");
+          if (response.ok) {
+            const data = await response.json();
+            document.getElementById(
+              "book-count"
+            ).innerHTML = `There are <strong>${data.count}</strong> books in your library.`;
+          } else {
+            document.getElementById("book-count").textContent =
+              "Failed to load book count";
+          }
+        } catch (error) {
+          console.error("Error fetching book count:", error);
+          document.getElementById("book-count").textContent =
+            "Error fetching book count";
+        }
+      }
+      fetchBookCount();
+    </script>
+  </body>
+</html>

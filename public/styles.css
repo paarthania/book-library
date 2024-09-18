@@ -1,0 +1,192 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    height: 90%; 
+    gap: 40px;
+}
+
+.search-section {
+    width: 40%; 
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    max-height: 95%;
+    height: 95%; 
+}
+
+.library-section {
+    width: 60%;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; 
+    max-height: 95%;
+    height: 95%; }
+
+
+/* Style for the grid layout on the right (My Library) */
+#library-results {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 books per row */
+    grid-gap: 30px;
+    margin-top: 20px;
+    margin-right: 15px;
+
+}
+
+#library-results .book-item {
+    width: 100%;
+    text-align: center;
+}
+
+#library-results img {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+}
+
+
+h2 {
+    margin-top: 0;
+}
+
+.search-container, .library-container {
+    display: flex;
+    align-items: center;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 80%; 
+    min-width: 200px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px; 
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#book-results {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px; 
+}
+
+.book-item {
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.book-item img {
+    width: 150px;
+    height: 200px; 
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.book-item .title {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.book-item .author {
+    font-weight: normal;
+    color: #555;
+    margin-top: 5px; 
+}
+.book-item .delete-button {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.book-item:hover .delete-button {
+    opacity: 1; /* Show minus button on hover */
+}
+
+.book-item img {
+    margin-bottom: 10px;
+}
+
+.add-button {
+    background-color: #28a745;
+    border: none;
+    color: white;
+    padding: 5px 70px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.add-button:hover {
+    background-color: #218838;
+}
+
+.message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #28a745; /* Green background for success */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+#book-count{
+    margin-bottom: 10px;
+    text-align: end;
+}
+.book-count{
+    margin-bottom: 10px;
+    text-align: end;
+
+}
+
+.message.show {
+    opacity: 1;
+}
